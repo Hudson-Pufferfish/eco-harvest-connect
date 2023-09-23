@@ -32,7 +32,10 @@ type ContextType = {
 export const CounterContext = createContext<ContextType | undefined>(undefined)
 
 // Create the reducer function
-const reducer = (state: CounterState, action: CounterAction): CounterState => {
+const counterReducer = (
+  state: CounterState,
+  action: CounterAction,
+): CounterState => {
   switch (action.type) {
     case ActionTypes.INCREMENT:
       return { ...state, count: state.count + 1 }
@@ -49,7 +52,7 @@ type ChildrenType = { children?: ReactElement | ReactElement[] }
 
 // Create the provider component
 export const CounterProvider = ({ children }: ChildrenType): ReactElement => {
-  const [state, dispatch] = useReducer(reducer, initialCounterState)
+  const [state, dispatch] = useReducer(counterReducer, initialCounterState)
 
   return (
     <CounterContext.Provider value={{ state, dispatch }}>
