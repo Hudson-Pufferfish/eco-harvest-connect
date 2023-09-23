@@ -1,9 +1,16 @@
 import React, { useContext } from 'react'
-import { ExampleContext, ActionTypes } from '~/context/ExampleContext'
-// import { ExampleContext, ActionTypes } from './ExampleContext'
+import { CounterContext, ActionTypes } from '~/context/CounterContext'
 
 const Counter: React.FC = () => {
-  const { state, dispatch } = useContext(ExampleContext)
+  const context = useContext(CounterContext)
+
+  if (!context) {
+    throw new Error(
+      'Counter component must be rendered within a CounterProvider',
+    )
+  }
+
+  const { state, dispatch } = context
 
   const increment = () => {
     dispatch({ type: ActionTypes.INCREMENT })
