@@ -13,6 +13,7 @@ const Counter: React.FC = () => {
   const { state, dispatch } = context
 
   const increment = () => {
+    console.log('hello')
     dispatch({ type: ActionTypes.INCREMENT })
   }
 
