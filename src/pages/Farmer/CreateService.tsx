@@ -1,11 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  Service,
-  addService,
-  cancelEditingService,
-  finishEditingService,
-} from '~/pages/Farmer/service.reducer'
+import { Service, addService, cancelEditingService, finishEditingService } from '~/pages/Farmer/service.reducer'
 import { RootState } from '~/store'
 
 const initialServiceState: Service = {
@@ -13,14 +8,12 @@ const initialServiceState: Service = {
   title: '',
   description: '',
   price: 0,
-  location: '',
+  location: ''
 }
 
 const CreateService: React.FC = () => {
   const [formData, setFormData] = useState(initialServiceState)
-  const editingService = useSelector(
-    (state: RootState) => state.service.editingService,
-  )
+  const editingService = useSelector((state: RootState) => state.service.editingService)
 
   const dispatch = useDispatch()
 
@@ -45,9 +38,7 @@ const CreateService: React.FC = () => {
     dispatch(cancelEditingService())
   }
 
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ): void => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target
 
     // Update the formData property corresponding to the input field's name
@@ -65,9 +56,7 @@ const CreateService: React.FC = () => {
     }))
   }
 
-  const handleChangeTextarea = (
-    event: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => {
+  const handleChangeTextarea = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = event.target
 
     // Update the formData property corresponding to the textarea field's name
@@ -76,11 +65,7 @@ const CreateService: React.FC = () => {
 
   return (
     <div className='flex justify-center'>
-      <form
-        onSubmit={handleSubmit}
-        onReset={handleCancelEditingService}
-        className='form'
-      >
+      <form onSubmit={handleSubmit} onReset={handleCancelEditingService} className='form'>
         <h2 className='card-title'>Add Your Service</h2>
         <div className='form-group'>
           <label htmlFor='title' className='form-label'>

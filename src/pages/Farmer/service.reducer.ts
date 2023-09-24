@@ -1,4 +1,4 @@
-import { createReducer, createAction, PayloadAction, nanoid, current } from '@reduxjs/toolkit'
+import { createReducer, createAction, PayloadAction, nanoid } from '@reduxjs/toolkit'
 
 // Define the type for your state
 
