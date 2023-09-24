@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-gray-800 {
+    background-color: #7d9f71 !important;
+}
+
+.my-custom-nav-bar {
+    @apply bg-gray-800;
+}
+
+
+.nav-bar {
+    padding: 1rem;
+    text-align: center;
+}
+
+
+
+
+/* .bar {
+    @apply ;
+} */
+

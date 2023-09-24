@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 {
+    margin-left: 1rem !important;
+}
+
+.my-new-card {
+    @apply .grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4;
+}
