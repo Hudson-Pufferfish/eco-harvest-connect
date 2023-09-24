@@ -7,7 +7,7 @@ const FarmerProfile: React.FC = () => {
     age: 35,
     location: 'Farmville',
     crops: ['Corn', 'Soybeans', 'Wheat'],
-    livestock: ['Cows', 'Sheep', 'Chickens']
+    livestock: ['Cows', 'Sheep', 'Chickens'],
   }
 
   const navigate = useNavigate()
@@ -18,8 +18,8 @@ const FarmerProfile: React.FC = () => {
 
   return (
     <div className='container mx-auto'>
-      <h1 className='mb-4 text-2xl font-bold'>Farmer Profile</h1>
       <div className='p-4 bg-white rounded-lg shadow-lg'>
+        <h1 className='mb-4 text-2xl font-bold'>Farmer Profile</h1>
         <p>
           <span className='font-semibold'>Name:</span> {farmer.name}
         </p>

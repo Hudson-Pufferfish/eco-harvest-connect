@@ -1,4 +1,5 @@
 import { Service } from './service.reducer'
+import './ServiceItem.css'
 
 interface ServiceItemProps {
   service: Service
@@ -6,10 +7,14 @@ interface ServiceItemProps {
   handleStartEditing: (serviceId: string) => void
 }
 
-const ServiceItem: React.FC<ServiceItemProps> = ({ service, handleDelete, handleStartEditing }) => {
+const ServiceItem: React.FC<ServiceItemProps> = ({
+  service,
+  handleDelete,
+  handleStartEditing,
+}) => {
   return (
-    <div className='p-4 mb-4 text-center border rounded-md hover:bg-gray-50'>
-      <h3 className='text-lg font-semibold'>{service.title}</h3>
+    <div className='service-card'>
+      <h3 className='service-card-title'>{service.title}</h3>
       <p className='text-gray-600'>{service.description}</p>
       <p className='text-blue-500'>${service.price}</p>
       <p className='text-gray-500'>{service.location}</p>

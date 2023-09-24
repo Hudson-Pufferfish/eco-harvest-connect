@@ -1,0 +1,17 @@
+.service-card {
+  @apply p-4 mb-4 text-center border rounded-md;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+}
+.service-card:hover {
+  transition: all linear 0.2s;
+  background: rgba(255, 255, 255, 0.9);
+  .service-card-title {
+    @apply text-black;
+  }
+}
+
+.service-card-title {
+  @apply text-lg font-semibold text-white;
+}

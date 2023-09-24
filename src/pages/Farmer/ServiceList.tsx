@@ -5,7 +5,9 @@ import ServiceItem from './ServiceItem'
 import { useMemo, useState } from 'react'
 
 function ServiceList() {
-  const serviceList = useSelector((state: RootState) => state.service.serviceList)
+  const serviceList = useSelector(
+    (state: RootState) => state.service.serviceList,
+  )
   const [searchKeyword, setSearchKeyword] = useState('')
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
 
@@ -21,7 +23,9 @@ function ServiceList() {
     let filteredList = serviceList
     if (searchKeyword) {
       filteredList = filteredList.filter(
-        (service) => service.location && service.location.toLowerCase().includes(searchKeyword.toLowerCase())
+        (service) =>
+          service.location &&
+          service.location.toLowerCase().includes(searchKeyword.toLowerCase()),
       )
     }
     return filteredList.sort((a, b) => {
@@ -39,8 +43,10 @@ function ServiceList() {
 
   return (
     <div>
-      <h2 className='mt-2 mb-4 text-2xl font-semibold text-center'>Service List</h2>
-      <div className='flex justify-center mb-4'>
+      <h2 className='mt-2 mb-4 text-2xl font-bold text-center text-white'>
+        Service List
+      </h2>
+      <div className='flex items-center justify-center max-w-3xl p-6 mx-auto mb-4 bg-white rounded-lg shadow-lg '>
         <input
           type='text'
           placeholder='Search by location...'
