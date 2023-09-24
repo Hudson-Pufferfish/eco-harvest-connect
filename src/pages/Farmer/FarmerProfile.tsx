@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const FarmerProfile: React.FC = () => {
   const farmer = {
@@ -7,6 +8,12 @@ const FarmerProfile: React.FC = () => {
     location: 'Farmville',
     crops: ['Corn', 'Soybeans', 'Wheat'],
     livestock: ['Cows', 'Sheep', 'Chickens']
+  }
+
+  const navigate = useNavigate()
+
+  const handleNewServiceClick = () => {
+    navigate('/service/new')
   }
 
   return (
@@ -38,6 +45,12 @@ const FarmerProfile: React.FC = () => {
             ))}
           </ul>
         </div>
+        <button
+          className='px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700'
+          onClick={handleNewServiceClick}
+        >
+          Create New Service
+        </button>
       </div>
     </div>
   )
