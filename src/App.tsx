@@ -8,15 +8,21 @@ function App() {
   return (
     <>
       <nav>
-        <ul>
+        <ul className='my-nav'>
           <li>
-            <Link to='/'>Home</Link>
+            <Link to='/' className='my-btn'>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to='/guest'>Guest</Link>
+            <Link to='/guest' className='my-btn'>
+              Guest
+            </Link>
           </li>
           <li>
-            <Link to='/service'>Service</Link>
+            <Link to='/service' className='my-btn'>
+              Service
+            </Link>
           </li>
         </ul>
       </nav>
