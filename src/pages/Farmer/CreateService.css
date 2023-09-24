@@ -10,7 +10,9 @@
   justify-content: center;
   margin-top: 5rem;
 }
-
+.form-label {
+  color: white;
+}
 /* Card styles */
 .card {
   max-width: 20rem;

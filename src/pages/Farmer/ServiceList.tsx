@@ -43,7 +43,7 @@ function ServiceList() {
 
   return (
     <div>
-      <h2 className='mt-2 mb-4 text-4xl font-bold text-center text-white'>
+      <h2 className='mt-2 mb-2 text-4xl font-bold text-center text-white'>
         Service List
       </h2>
       <div className='flex items-center justify-center max-w-3xl py-8 mx-auto mb-4 bg-white rounded-lg shadow-lg '>

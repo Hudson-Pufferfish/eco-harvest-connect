@@ -28,6 +28,8 @@ body {
 
 /* Card title styles */
 .card-title {
+  color: white;
+  font-weight: 400;
   text-align: center;
   font-size: 1.6rem;
   font-weight: bold;
@@ -51,7 +53,7 @@ body {
   font-weight: bold;
   margin-bottom: 0.4rem;
   display: block;
-  color: #333; /* Customize color as needed */
+  color: white; /* Customize color as needed */
 }
 
 /* Form input styles */
