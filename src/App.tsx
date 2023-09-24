@@ -1,7 +1,8 @@
 import CreateService from './pages/Farmer/CreateService'
-import Home from './pages/Home'
 import { Route, Routes, Link } from 'react-router-dom'
 import NotFound from './pages/NotFound'
+import Home from './pages/Home'
+import { ServiceRoutes } from './routes/ServiceRoutes'
 
 function App() {
   return (
@@ -12,13 +13,13 @@ function App() {
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/farmer'>Farmer</Link>
+            <Link to='/service'>Service</Link>
           </li>
         </ul>
       </nav>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/farmer' element={<CreateService />} />
+        <Route path='/service/*' element={<ServiceRoutes />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
