@@ -1,4 +1,5 @@
 import { createContext, useReducer, Dispatch, ReactNode } from 'react'
+import { uid } from 'uid';
 
 // Define the type for your state
 
@@ -39,10 +40,17 @@ const ServicesReducer = (
 ): ServicesState => {
   switch (action.type) {
     case ActionTypes.ADD:
-      return {
-        ...state,
-        serviceList: [...state.serviceList, action.payload],
+      const newService = {
+        ...action.payload,
+        id: uid(), // Generate a unique ID for the service
       };
+      const newServiceList = {
+        ...state,
+        serviceList: [...state.serviceList, newService],
+      };
+      console.log('New State after ADD:', newServiceList); // Log the updated state
+      return newServiceList;
+
       case ActionTypes.REMOVE:
         return {
           ...state,
@@ -54,6 +62,8 @@ const ServicesReducer = (
         return state
     }
 }
+
+
 
 type ChildrenType = { children?: ReactNode }
 
