@@ -1,30 +1,25 @@
-import React, { useState, useContext } from 'react'
-import { ServicesContext, ActionTypes } from '~/context/ServicesProvider'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addService } from '~/pages/Farmer/service.reducer'
 
 const initialServiceState = {
   id: '',
   title: '',
   description: '',
   price: 0,
-  location: ''
+  location: '',
 }
 
 const CreateService: React.FC = () => {
-  const servicesContext = useContext(ServicesContext)
   const [formData, setFormData] = useState(initialServiceState)
 
-  if (!servicesContext) {
-    // Render a loading indicator or message
-    return <div className='text-center'>Loading...</div>
-  }
-
-  const { dispatch } = servicesContext
+  const dispatch = useDispatch()
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     // Dispatch an action to add a service here using the formData
-    dispatch({ type: ActionTypes.ADD, payload: formData })
+    dispatch(addService(formData))
     setFormData(initialServiceState)
   }
 
@@ -32,6 +27,15 @@ const CreateService: React.FC = () => {
     const { name, value } = event.target
 
     // Update the formData property corresponding to the input field's name
+    setFormData({ ...formData, [name]: value })
+  }
+
+  const handleChangeTextarea = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = event.target
+
+    // Update the formData property corresponding to the textarea field's name
     setFormData({ ...formData, [name]: value })
   }
 
@@ -65,7 +69,7 @@ const CreateService: React.FC = () => {
             placeholder='Description'
             required
             value={formData.description}
-            onChange={handleInputChange}
+            onChange={handleChangeTextarea}
           />
         </div>
         <div className='form-group'>

@@ -1,5 +1,7 @@
-import React, { useContext } from 'react'
-import { ServicesContext, Service } from '~/context/ServicesProvider'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Service } from '~/pages/Farmer/service.reducer'
+import { RootState } from '~/store'
 
 interface ServiceCardProps {
   service: Service
@@ -18,13 +20,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
 
 // Define the Guest component
 function Guest() {
-  const { state } = useContext(ServicesContext)
+  const serviceList = useSelector(
+    (state: RootState) => state.service.serviceList,
+  )
 
   return (
     <div>
       <h2 className='mb-4 text-2xl font-semibold'>Guest Page</h2>
       <div className='grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4'>
-        {state.serviceList.map((service) => (
+        {serviceList.map((service) => (
           <div key={service.id}>
             <ServiceCard service={service} />
           </div>
