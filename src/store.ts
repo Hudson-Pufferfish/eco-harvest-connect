@@ -1,10 +1,32 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 import serviceReducer from './pages/Farmer/service.reducer'
 
+const persistConfigService = {
+  key: 'service',
+  storage,
+}
+
+// const persistConfigSession = {
+//   key: 'session',
+//   storage,
+// };
+
+const persistedServiceReducer = persistReducer(
+  persistConfigService,
+  serviceReducer,
+)
+// const persistedSessionReducer = persistReducer(persistConfigSession, sessionReducer);
+
 export const store = configureStore({
-  reducer: { service: serviceReducer },
+  reducer: {
+    service: persistedServiceReducer,
+    // session: persistedSessionReducer,
+  },
 })
 
-export type RootState = ReturnType<typeof store.getState>
+export const persistor = persistStore(store)
 
+export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
