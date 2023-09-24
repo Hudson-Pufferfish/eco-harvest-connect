@@ -16,12 +16,12 @@ function App() {
           </li>
           <li>
             <Link to='/guest' className='my-btn'>
-              Guest
+              Available Service
             </Link>
           </li>
           <li>
             <Link to='/service' className='my-btn'>
-              Service
+              My Profile
             </Link>
           </li>
         </ul>
