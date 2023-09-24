@@ -7,9 +7,9 @@
 .service-card:hover {
   transition: all linear 0.2s;
   background: rgba(255, 255, 255, 0.9);
-  /* .service-card-title {
+  .service-card-title {
     @apply text-black;
-  } */
+  }
 }
 
 .service-card-title {
