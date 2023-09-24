@@ -1,18 +1,13 @@
-<<<<<<< Updated upstream
-import Counter from './components/Counter'
-=======
 
-import CreateService from './components/CreateService'
->>>>>>> Stashed changes
+import CreateService from './pages/Farmer/CreateService'
+
 
 function App() {
   return (
     <>
-<<<<<<< Updated upstream
-      <Counter />
-=======
+
       <CreateService />
->>>>>>> Stashed changes
+
     </>
   )
 }

@@ -102,13 +102,12 @@ const CreateService: React.FC = () => {
             onChange={handleInputChange}
           />
         </div>
-        {/* Add similar form fields for other properties of your Service type */}
-        <div>
+        <div className="button">
           <button
             type="submit"
             className="btn-create-service"
           >
-            Create Service
+            Add Service
           </button>
         </div>
       </form>

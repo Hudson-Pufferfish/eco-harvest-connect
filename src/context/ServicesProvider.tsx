@@ -13,7 +13,10 @@ type Service = {
 
 type ServicesState = {
   serviceList: Service[],
+  validationError: string | null
 }
+
+
 
 export enum ActionTypes {
   ADD = 'add',
@@ -25,6 +28,7 @@ type ServicesAction = { type: ActionTypes.ADD, payload: Service}
 
 const initialServicesState: ServicesState = {
   serviceList: [],
+  validationError: null,
 }
 
 type ContextType = {
@@ -40,6 +44,16 @@ const ServicesReducer = (
 ): ServicesState => {
   switch (action.type) {
     case ActionTypes.ADD:
+      if (action.payload.price < 0) {
+        alert("Your price must not be negative")
+        // Set the validation error message
+        const newStateWithError = {
+          ...state,
+          validationError: 'Price cannot be negative.',
+        };
+        return newStateWithError;
+      }
+
       const newService = {
         ...action.payload,
         id: uid(), // Generate a unique ID for the service
