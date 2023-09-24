@@ -3,7 +3,7 @@ import { uid } from 'uid';
 
 // Define the type for your state
 
-type Service = {
+export type Service = {
   id: string,
   title: string,
   description?: string,
@@ -13,7 +13,6 @@ type Service = {
 
 type ServicesState = {
   serviceList: Service[],
-  validationError: string | null
 }
 
 
@@ -28,7 +27,6 @@ type ServicesAction = { type: ActionTypes.ADD, payload: Service}
 
 const initialServicesState: ServicesState = {
   serviceList: [],
-  validationError: null,
 }
 
 type ContextType = {
@@ -47,11 +45,7 @@ const ServicesReducer = (
       if (action.payload.price < 0) {
         alert("Your price must not be negative")
         // Set the validation error message
-        const newStateWithError = {
-          ...state,
-          validationError: 'Price cannot be negative.',
-        };
-        return newStateWithError;
+        return state
       }
 
       const newService = {

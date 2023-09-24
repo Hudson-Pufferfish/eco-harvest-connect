@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
-import { ServicesContext } from '~/context/ServicesProvider';
+import { ServicesContext, Service } from '~/context/ServicesProvider';
 
-// Define a component to display a single service card
-function ServiceCard({ service }) {
+interface ServiceCardProps {
+  service: Service;
+}
+
+  const ServiceCard: React.FC<ServiceCardProps> = ({service}) => {
   return (
     <div className="border rounded-md p-4 mb-4">
       <h3 className="text-lg font-semibold">{service.title}</h3>
