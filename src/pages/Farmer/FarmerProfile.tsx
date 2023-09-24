@@ -6,7 +6,7 @@ const FarmerProfile: React.FC = () => {
     age: 35,
     location: 'Farmville',
     crops: ['Corn', 'Soybeans', 'Wheat'],
-    livestock: ['Cows', 'Sheep', 'Chickens'],
+    livestock: ['Cows', 'Sheep', 'Chickens']
   }
 
   return (

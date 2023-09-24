@@ -6,11 +6,12 @@ const initialServiceState = {
   title: '',
   description: '',
   price: 0,
-  location: '',
+  location: ''
 }
 
 const CreateService: React.FC = () => {
   const servicesContext = useContext(ServicesContext)
+  const [formData, setFormData] = useState(initialServiceState)
 
   if (!servicesContext) {
     // Render a loading indicator or message
@@ -18,7 +19,6 @@ const CreateService: React.FC = () => {
   }
 
   const { dispatch } = servicesContext
-  const [formData, setFormData] = useState(initialServiceState)
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -98,10 +98,9 @@ const CreateService: React.FC = () => {
             onChange={handleInputChange}
           />
         </div>
-        {/* Add similar form fields for other properties of your Service type */}
-        <div>
+        <div className='button'>
           <button type='submit' className='btn-create-service'>
-            Create Service
+            Add Service
           </button>
         </div>
       </form>

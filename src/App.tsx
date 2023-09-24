@@ -1,8 +1,8 @@
-import CreateService from './pages/Farmer/CreateService'
 import { Route, Routes, Link } from 'react-router-dom'
 import NotFound from './pages/NotFound'
 import Home from './pages/Home'
 import { ServiceRoutes } from './routes/ServiceRoutes'
+import { GuestRoutes } from './routes/GuestRoutes'
 
 function App() {
   return (
@@ -13,6 +13,9 @@ function App() {
             <Link to='/'>Home</Link>
           </li>
           <li>
+            <Link to='/guest'>Guest</Link>
+          </li>
+          <li>
             <Link to='/service'>Service</Link>
           </li>
         </ul>
@@ -20,6 +23,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/service/*' element={<ServiceRoutes />} />
+        <Route path='/guest/*' element={<GuestRoutes />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>

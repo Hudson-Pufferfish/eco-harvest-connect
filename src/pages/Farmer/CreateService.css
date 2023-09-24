@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add these styles to your index.css file */
+
+/* Flex container styles */
+.flex {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+/* Card styles */
+.card {
+  max-width: 20rem;
+  padding: 1.6rem;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Card title styles */
+.card-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.form {
+  border: rgb(227, 227, 227) 2px solid;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+/* Form group styles */
+.form-group {
+  margin-bottom: 2rem;
+}
+
+/* Form label styles */
+.form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  display: block;
+  color: #333; /* Customize color as needed */
+}
+
+/* Form input styles */
+.form-input,
+.form-textarea {
+  width: 30rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  color: #333; /* Customize color as needed */
+}
+
+/* Button styles */
+.button {
+  text-align: center;
+}
+
+.btn-create-service {
+  align-items: center;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+  color: #fff;
+  background-color: rgb(85, 178, 85);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-create-service:hover {
+  background: rgb(85, 178, 85); /* Customize hover gradient as needed */
+  color: #fff; /* Customize hover color as needed */
+}
+
+/* index.css */
+
+/* Apply styles to specific elements using classes */
+.my-custom-button {
+  @apply btn-create-service;
+}
+
+/* Add more custom styles as needed */
