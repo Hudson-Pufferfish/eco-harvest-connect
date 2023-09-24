@@ -9,7 +9,9 @@ import React from 'react'
 const Home: React.FC = () => {
   return (
     <div>
-      <h1>Welcome to the Home Page</h1>
+      <h1 className='text-3xl font-medium text-center'>
+        Welcome to Eco Farm Travel!
+      </h1>
     </div>
   )
 }
