@@ -59,6 +59,8 @@ const CreateService: React.FC = () => {
               .replace(/[^a-zA-Z]/g, '')
               .toLowerCase()
               .replace(/^\w/, (c) => c.toUpperCase())
+          : name === 'price'
+          ? value.replace(/^0+(?!$|\.)/, '')
           : value,
     }))
   }
