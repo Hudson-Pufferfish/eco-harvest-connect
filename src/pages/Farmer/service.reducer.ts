@@ -1,9 +1,4 @@
-import {
-  createReducer,
-  createAction,
-  PayloadAction,
-  nanoid,
-} from '@reduxjs/toolkit'
+import { createReducer, createAction, PayloadAction, nanoid } from '@reduxjs/toolkit'
 
 // Define the type for your state
 
@@ -19,22 +14,19 @@ type ServicesState = {
   serviceList: Service[]
 }
 
-export const addService = createAction(
-  'service/addService',
-  function (service: Omit<Service, 'id'>) {
-    return {
-      payload: {
-        ...service,
-        id: nanoid(),
-      },
+export const addService = createAction('service/addService', function (service: Omit<Service, 'id'>) {
+  return {
+    payload: {
+      ...service,
+      id: nanoid()
     }
-  },
-)
+  }
+})
 
 export const removeService = createAction<string>('service/removeService')
 
 const initialServicesState: ServicesState = {
-  serviceList: [],
+  serviceList: []
 }
 
 const serviceReducer = createReducer(initialServicesState, (builder) => {
@@ -54,9 +46,7 @@ const serviceReducer = createReducer(initialServicesState, (builder) => {
     })
 
     .addCase(removeService, (state, action: PayloadAction<string>) => {
-      state.serviceList = state.serviceList.filter(
-        (service) => service.id !== action.payload,
-      )
+      state.serviceList = state.serviceList.filter((service) => service.id !== action.payload)
     })
     .addDefaultCase((state, action) => {
       console.log('Unhandled action:', action.type)

@@ -5,7 +5,7 @@ import serviceReducer from './pages/Farmer/service.reducer'
 
 const persistConfigService = {
   key: 'service',
-  storage,
+  storage
 }
 
 // const persistConfigSession = {
@@ -13,17 +13,14 @@ const persistConfigService = {
 //   storage,
 // };
 
-const persistedServiceReducer = persistReducer(
-  persistConfigService,
-  serviceReducer,
-)
+const persistedServiceReducer = persistReducer(persistConfigService, serviceReducer)
 // const persistedSessionReducer = persistReducer(persistConfigSession, sessionReducer);
 
 export const store = configureStore({
   reducer: {
-    service: persistedServiceReducer,
+    service: persistedServiceReducer
     // session: persistedSessionReducer,
-  },
+  }
 })
 
 export const persistor = persistStore(store)

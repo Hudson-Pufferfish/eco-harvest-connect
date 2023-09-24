@@ -20,9 +20,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
 
 // Define the Guest component
 function Guest() {
-  const serviceList = useSelector(
-    (state: RootState) => state.service.serviceList,
-  )
+  const serviceList = useSelector((state: RootState) => state.service.serviceList)
 
   return (
     <div>

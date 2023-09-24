@@ -7,7 +7,7 @@ const initialServiceState = {
   title: '',
   description: '',
   price: 0,
-  location: '',
+  location: ''
 }
 
 const CreateService: React.FC = () => {
@@ -30,9 +30,7 @@ const CreateService: React.FC = () => {
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleChangeTextarea = (
-    event: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => {
+  const handleChangeTextarea = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = event.target
 
     // Update the formData property corresponding to the textarea field's name
