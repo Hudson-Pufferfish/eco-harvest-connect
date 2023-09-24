@@ -2,9 +2,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '~/store'
 import { startEditingService, removeService } from './service.reducer'
 import ServiceItem from './ServiceItem'
+import { useMemo, useState } from 'react'
 
 function ServiceList() {
-  const serviceList = useSelector((state: RootState) => state.service.serviceList)
+  const serviceList = useSelector(
+    (state: RootState) => state.service.serviceList,
+  )
+  const [searchKeyword, setSearchKeyword] = useState('')
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
 
   const dispatch = useDispatch()
   const handleDelete = (serviceId: string) => {
@@ -14,12 +19,51 @@ function ServiceList() {
     dispatch(startEditingService(serviceId))
   }
 
+  const filteredServiceList = useMemo(() => {
+    let filteredList = serviceList
+    if (searchKeyword) {
+      filteredList = filteredList.filter(
+        (service) =>
+          service.location &&
+          service.location.toLowerCase().includes(searchKeyword.toLowerCase()),
+      )
+    }
+    return filteredList.sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.price - b.price
+      } else {
+        return b.price - a.price
+      }
+    })
+  }, [serviceList, searchKeyword, sortOrder])
+
+  const toggleSortOrder = () => {
+    setSortOrder((prevSortOrder) => (prevSortOrder === 'asc' ? 'desc' : 'asc'))
+  }
+
   return (
     <div>
-      <h2 className='mb-4 text-2xl font-semibold'>ServiceList Page</h2>
-      <div className='grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4'>
-        {serviceList.map((service) => (
-          <div key={service.id} className='max-w-md'>
+      <h2 className='mt-2 mb-4 text-2xl font-semibold text-center'>
+        Service List
+      </h2>
+      <div className='flex justify-center mb-4'>
+        <input
+          type='text'
+          placeholder='Search by location...'
+          value={searchKeyword}
+          onChange={(e) => setSearchKeyword(e.target.value)}
+          className='px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500'
+        />
+        <button
+          className='px-4 py-2 ml-4 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500'
+          onClick={toggleSortOrder}
+        >
+          Sort by Price {sortOrder === 'asc' ? '↑' : '↓'}
+        </button>
+      </div>
+      <div className='grid grid-cols-4 gap-4 mx-8'>
+        {filteredServiceList.map((service) => (
+          <div key={service.id} className='max-w-sm'>
             <ServiceItem
               key={service.id}
               service={service}
