@@ -6,11 +6,7 @@ interface ServiceItemProps {
   handleStartEditing: (serviceId: string) => void
 }
 
-const ServiceItem: React.FC<ServiceItemProps> = ({
-  service,
-  handleDelete,
-  handleStartEditing,
-}) => {
+const ServiceItem: React.FC<ServiceItemProps> = ({ service, handleDelete, handleStartEditing }) => {
   return (
     <div className='p-4 mb-4 text-center border rounded-md hover:bg-gray-50'>
       <h3 className='text-lg font-semibold'>{service.title}</h3>
